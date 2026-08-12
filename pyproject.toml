@@ -1,0 +1,17 @@
+[project]
+name = "comfyui-anima-2.9b-lorapatch"
+description = "Apply 28-block Anima LoRAs to Anima-2.9B (40 blocks) with the correct block-index mapping, at load time and without converting files."
+version = "1.0.0"
+license = { file = "LICENSE" }
+requires-python = ">=3.9"
+readme = "README.md"
+classifiers = ["Operating System :: OS Independent"]
+
+[project.urls]
+Repository = "https://github.com/sparklingcoffee777/ComfyUI-Anima-2.9B-loraPatch"
+"Bug Tracker" = "https://github.com/sparklingcoffee777/ComfyUI-Anima-2.9B-loraPatch/issues"
+
+[tool.comfy]
+PublisherId = "sparklingcoffee777"
+DisplayName = "Anima-2.9B LoRA patch"
+Icon = ""

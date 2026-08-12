@@ -168,7 +168,7 @@ def _needs_remap(lora, to_load):
     return False
 
 
-_orig_load_lora = comfy.lora.load_lora
+_orig_load_lora = getattr(comfy.lora, "load_lora", None)
 
 
 def patched_load_lora(lora, to_load, *args, **kwargs):
@@ -189,7 +189,12 @@ def patched_load_lora(lora, to_load, *args, **kwargs):
 
 patched_load_lora._anima29b_lora_patch = True
 
-if getattr(_orig_load_lora, "_anima29b_lora_patch", False):
+if _orig_load_lora is None:
+    logging.warning(
+        "{} comfy.lora.load_lora not found; cannot install. This ComfyUI version is "
+        "not supported by this patch.".format(LOG_PREFIX)
+    )
+elif getattr(_orig_load_lora, "_anima29b_lora_patch", False):
     logging.info("{} already installed; skipping.".format(LOG_PREFIX))
 else:
     comfy.lora.load_lora = patched_load_lora

@@ -79,6 +79,14 @@ When a 28-block LoRA is applied to 2.9B:
 
 [storyAura/Anima2.9B-Lora-weight-conversion](https://github.com/storyAura/Anima2.9B-Lora-weight-conversion) takes the alternative approach of converting the LoRA files ahead of time (its insertion indices match this patch). That is useful outside ComfyUI or when distributing converted files. Running both is safe — a converted LoRA no longer covers exactly blocks 0..27, so this patch passes it through untouched.
 
+## Development notes
+
+This project was vibe-coded with **Claude Opus 5** (Anthropic) in a Claude Code session: the investigation, the weight measurements and the code were all produced by the model under human direction.
+
+The block mapping is not guesswork. It was derived by comparing the actual `.safetensors` weights of `Anima-2.9B-preview-v1` against `anima-base-v1.0` tensor by tensor, which is how the 28 bit-identical blocks and the 12 insertion points were identified. The gating logic was then checked against 50 real Anima LoRAs: all 50 resolved every block key to the correct expanded index, with no false positives on 28-block models or on synthetic native 40-block LoRAs.
+
+That said, please read the code before trusting it — it is short and single-purpose on purpose. Bug reports and corrections are welcome in the issue tracker.
+
 ## License
 
 GPL-3.0, matching ComfyUI itself, since this patch hooks ComfyUI internals directly.
