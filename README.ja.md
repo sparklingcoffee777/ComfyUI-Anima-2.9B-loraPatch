@@ -34,7 +34,9 @@ Anima-2.9B は anima-base-v1.0 の block expansion（深さ拡張）モデルで
 
 ## 前提
 
-Anima-2.9B を 40 ブロックでロードするために [ComfyUI-Anima-2.9B-blocksPatch](https://github.com/sparklingcoffee777/ComfyUI-Anima-2.9B-blocksPatch)（またはオリジナルの ComfyUI-Anima-2.9B）が別途必要です。28 ブロックに切り詰められたモデルに対しては本パッチは働きません。
+まず Anima-2.9B が 40 ブロックでロードされる必要があります。現行の ComfyUI は [PR #15555](https://github.com/Comfy-Org/ComfyUI/pull/15555)（2026-08-12 マージ）でネイティブ対応済みなので、**ComfyUI を更新するだけで足ります**。
+
+古い ComfyUI の場合は [ComfyUI-Anima-2.9B-blocksPatch](https://github.com/sparklingcoffee777/ComfyUI-Anima-2.9B-blocksPatch) かオリジナルの ComfyUI-Anima-2.9B を使ってください。いずれにせよ、28 ブロックに切り詰められたモデルに対しては本パッチは働きません（リマップ先として本物の 40 ブロック構成が必要です）。
 
 ## 動作
 

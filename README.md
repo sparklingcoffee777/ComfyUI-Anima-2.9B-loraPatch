@@ -34,7 +34,9 @@ To uninstall, delete the folder or append `.disabled` to its name.
 
 ## Requirements
 
-You also need [ComfyUI-Anima-2.9B-blocksPatch](https://github.com/sparklingcoffee777/ComfyUI-Anima-2.9B-blocksPatch) (or the original ComfyUI-Anima-2.9B) so that Anima-2.9B loads with all 40 blocks. This patch cannot help a model that was already truncated to 28 blocks.
+Anima-2.9B has to load with all 40 blocks first. Current ComfyUI does this natively as of [PR #15555](https://github.com/Comfy-Org/ComfyUI/pull/15555) (merged 2026-08-12), so **updating ComfyUI is all you need**.
+
+On an older ComfyUI, use [ComfyUI-Anima-2.9B-blocksPatch](https://github.com/sparklingcoffee777/ComfyUI-Anima-2.9B-blocksPatch) or the original ComfyUI-Anima-2.9B. Either way, this patch cannot help a model that was already truncated to 28 blocks — the remap needs the real 40-block layout to target.
 
 ## How it works
 
